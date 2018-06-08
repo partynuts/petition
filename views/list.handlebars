@@ -1,0 +1,31 @@
+<div class="container">
+
+
+
+<div class="participants">
+  <table>
+    <thead>
+      <tr>
+         <th scope="col" class="tname">Name</th>
+         <th scope="col" class="tage">Age</th>
+         <th scope="col" class="tcity">City</th>
+      </tr>
+    </thead>
+  </table>
+{{#signersList}}
+<table>
+  <tbody>
+    <tr>
+      {{#if url}}
+        <td class="tname"><a href="{{url}}" target="_blank">{{first}} {{last}}</a></td>
+      {{else}}
+        <td class="tname">{{first}} {{last}}</td>
+      {{/if}}
+      <td class="tage">{{age}}</td>
+      <td class="tcity"><a href="/list/{{city}}">{{city}}</a></td>
+    </tr>
+  </tbody>
+</table>
+{{/signersList}}
+</div>
+</div>

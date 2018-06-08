@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="descr">
+    <h3>We want to get to know you better!</h3>
+    <p>Please share some more information about yourself with us.
+    </p>
+  </div>
+  <div class="wrapper">
+    <form method="POST">
+      <label> Age <input class="input" type="number" min="0" name="age"></input></label>
+      <label> City <input class="input" type="text" name="city" placeholder="e.g. Berlin"></input></label>
+      <label> Homepage <input class="input" type="text" name="url" placeholder="e.g. www.theuselessweb.com"> </input>
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+      <button class="button" type="submit" name="button">Continue</button>
+    </form>
+  </div>
+
+</div>

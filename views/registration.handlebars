@@ -1,0 +1,30 @@
+{{#error}}
+  <div class="error">{{{errmessage}}}</div>
+{{/error}}
+
+<div class="container">
+  <div class="descr">
+    <h3>The Cause</h3>
+    <p>Are you also fed up with that 50 shades of grey weather during winter time which makes up almost 8 months of the year (well at least in Berlin)? Does this grey soup also get you down? Would you also like to have more variety than this depressing grey
+      in grey? Then sign in our petition for more colorful world throughout the year and compassing all areas of life! With your signature you will make the world a more colorful and thus happier place. You will see more smiling faces and an increase
+      in mood. Your voice has an impact. Let's start making a change.
+    </p>
+    <p>Register to be a supporter!</p>
+  </div>
+  <div class="wrapper">
+    <h3>Register to be a supporter!</h3>
+    <form method="POST">
+      <label> First Name* <input class="input" type="text" name="first" placeholder="John" autofocus></input></label>
+      <label> Last Name* <input class="input" type="text" name="last" placeholder="Doe"></input></label>
+      <label> E-Mail* <input class="input" type="email" name="email" placeholder="johndoe@gmail.com" > </input>
+      <label> Password* <input class="input" type="password" name="pw"  > </input>
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+      <p class="required">Fields marked with * are required!</p>
+      <button class="button" type="submit" name="button">Register</button>
+    </form>
+  </div>
+  <div class="participants">
+    <h3>Allready a supporter?</h3>
+    <a href="/login">Then Log-In here!</a>
+  </div>
+</div>

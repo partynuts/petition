@@ -1,0 +1,22 @@
+
+<div class="container">
+  <div class="descr">
+    <h3>Your update has been saved!</h3>
+    <p>You can see the changes you've made below.</p>
+  </div>
+
+{{#userInfo}}
+  <div class="wrapper">
+    <form method="GET">
+      <label> First Name <input class="input" type="text" name="first" value="{{first}}" readonly></input></label>
+      <label> Last Name <input class="input" type="text" name="last" value="{{last}}" readonly></input></label>
+      <label> E-Mail <input class="input" type="email" name="email"  value="{{email}}" readonly> </input>
+      <label> Password <input class="input" type="password" name="pw" value="{{pw}}" readonly> </input>
+      <label> Age <input class="input" type="number" min="0" name="age" value="{{age}}" readonly></input></label>
+      <label> City <input class="input" type="text" name="city" value="{{city}}" readonly></input></label>
+      <label> Homepage <input class="input" type="text" name="url" value="{{url}}" readonly> </input>
+      <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+    </form>
+  </div>
+{{/userInfo}}
+</div>

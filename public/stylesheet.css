@@ -1,0 +1,409 @@
+body {
+  /* background-color: deeppink; */
+  font-size: 20px;
+  background: fuchsia url('https://www.vermartec.com/wp-content/uploads/2017/01/Farbspritzer-frei_1.1.png') no-repeat;
+}
+
+
+
+h1 {
+  display: grid;
+  justify-items: center;
+  color: #660033;
+  font-size: 70px;
+  font-family: 'Caveat Brush', cursive;
+  text-shadow: 6px 6px 10px #00ffff, -6px -6px 10px #ffff00, 6px -6px 10px #ff3300, -6px 6px 10px #00cc00;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: 'Caveat Brush', cursive;
+}
+
+h3 {
+  font-size: 40px;
+  font-family: 'Caveat Brush', cursive;
+}
+
+.container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+}
+
+.descr {
+  grid-row: 1;
+  border-radius: 5px;
+  background: rgba(0, 255, 0, 0.9);
+  width: 70%;
+  height: auto;
+  opacity: 70%;
+  padding: 20px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.wrapper {
+  grid-row: 2;
+  border-radius: 5px;
+  background: rgba(255, 0, 0, .9);
+  width: 70%;
+  height: auto;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-image: url('http://arbeitsmed.info/wp-content/uploads/2017/12/munken-highway-white-arctic-paper-avec-png-colour-splash-et-bg-splash-png-colour-splash-11-2000x2500.png');
+  /* display: grid; */
+  /* justify-content: center; */
+}
+
+.small {
+  width: 30%;
+  background: rgba(255, 255, 102, .9);
+}
+
+.input.login {
+  width: 80%;
+}
+
+.error {
+  /* display: none; */
+  grid-row: 1;
+  border-radius: 5px;
+  background: rgba(0, 0, 26, 0.9);
+  color: white;
+  width: 100%;
+  height: auto;
+  opacity: 70%;
+  padding: 20px;
+  margin-bottom: 20px;
+  align-self: center;
+  box-shadow: 0px 0px 30px 8px red;
+}
+
+canvas {
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-top: 25px;
+  display: block;
+  background-color: white;
+  position: relative;
+  top: -.2em;
+  /* cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"); */
+  cursor: url('pen.png'), default;
+}
+
+/* canvas:onmousedown {
+  box-shadow: 0px 0px 30px 8px purple;
+  /* cursor: url("pen2.png"), auto; */
+
+/* } */
+
+canvas:hover {
+  cursor: url('pen.png'), default;
+}
+
+header {
+  /* display: block; */
+  font-weight: bolder;
+  font-size: 20px;
+  /* font-family: 'Caveat Brush', cursive; */
+  margin-bottom: 30px;
+}
+
+input[readonly] {
+  background-color: #f3ccff;
+}
+
+.nav ul {
+  list-style: none;
+  background-color: #ff9900;
+  border-radius: 5px;
+  border-style: groove;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+font-family: 'Caveat Brush', cursive;
+  font-size: 30px;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+  display: inline-block;
+  margin-left: 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  background-color: #3366ff;
+}
+
+.nav a.active {
+  /* background-color: #fff; */
+  color: #fff;
+  cursor: default;
+}
+
+/* a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+} */
+
+label {
+  font-size: 15px;
+  /* font-weight bolder; */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=url], input[type=number] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+input:focus {
+  box-shadow: 0px 0px 30px 8px purple;
+}
+
+button[type=reset] {
+  width: 20%;
+  /* background-image: url("whitetube.png"); */
+  /* background-repeat: no-repeat;
+  background-position: center; */
+  background-color: black;
+  display: block;
+  color: white;
+  font-size: 30px;
+  /* font-weight: bolder; */
+  font-family: 'Caveat Brush', cursive;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+button[type=reset]:hover {
+  opacity: 70%;
+  background-color: white;
+}
+
+button[type=submit] {
+
+  /* background-size: 40%; */
+  width: 40%;
+
+  background:  linear-gradient(to bottom right, deeppink,#99ff66, orange,deeppink,limegreen,turquoise,#ff0066, tomato);
+  display: block;
+  color: black;
+  font-size: 45px;
+  /* font-weight: bolder; */
+  font-family: 'Caveat Brush', cursive;
+  padding: 14px 20px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+label.missing {
+text-shadow: 4px 4px 2px rgba(254, 150, 150, 1);
+}
+
+p.required {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.thxcontainer {
+  display: grid;
+  justify-items: center;
+}
+
+.thanks {
+  border-radius: 5px;
+  background: rgba(0, 204, 255, 0.9);
+  width: 70%;
+  height: 50%;
+  opacity: 70%;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.signImg {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  width: 70%;
+  height: auto;
+  opacity: 70%;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  border-style: solid;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.participants {
+  border-radius: 5px;
+  background: rgba(204, 51, 255, 0.9);
+  width: 70%;
+  height: auto;
+  opacity: 70%;
+  padding:  20px;
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #660066;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tname {
+  width: 50%;
+  margin-left: 20px;
+}
+
+.tage {
+  width: 10%;
+}
+
+.tcity {
+  width: 30%;
+}
+
+/* td {
+  padding: 20px;
+} */
+
+footer {
+  position: absolute;
+  margin-top: 20px;
+  margin-bottom:0;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 25px;
+  }
+  .descr {
+    padding: 10px;
+    margin-bottom: 10px;
+    align-self: center;
+  }
+  .wrapper {
+    margin-bottom: 15px;
+    padding: 10px;
+    /* background-image: url('http://arbeitsmed.info/wp-content/uploads/2017/12/munken-highway-white-arctic-paper-avec-png-colour-splash-et-bg-splash-png-colour-splash-11-2000x2500.png'); */
+  }
+  .small {
+    width: 30%;
+    background: rgba(255, 255, 102, .9);
+    padding-
+  }
+  .input.login {
+    width: 80%;
+  }
+  .error {
+    color: white;
+    width: 100%;
+    height: auto;
+    opacity: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  canvas {
+    border: 1px solid black;
+    margin-top: 13px;
+    /* width="750" height="300" */
+  }
+  header {
+    margin-bottom: 7.5px;
+  }
+  label {
+    font-size: 10px;
+    font-weight bolder;
+  }
+  input[type=text], input[type=email], input[type=password], input[type=url], input[type=number] {
+    padding: 6px 10px;
+    margin: 4px 0;
+  }
+  .thanks {
+    width: 70%;
+    height: 50%;
+    opacity: 70%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+  .signImg {
+    width: 70%;
+    height: auto;
+    opacity: 70%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .participants {
+    width: 70%;
+    height: auto;
+    opacity: 70%;
+    padding: 10px;
+    font-size: 15px;
+  }
+  table {
+    border: 1px solid white;
+  }
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+  /* .tname {
+    width: 40%;
+  }
+
+  .tage {
+    width: 10%;
+  }
+
+  .tcity {
+    width: 30%;
+  } */
+}

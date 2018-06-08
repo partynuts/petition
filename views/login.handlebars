@@ -1,0 +1,92 @@
+{{#error}}
+  <div class="error">{{{errmessage}}}</div>
+{{/error}}
+<div class="container">
+
+<div class="wrapper small">
+  <form method="POST">
+  <div class="svgContainer">
+    <div>
+      <svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" >
+
+
+        <defs>
+          <circle id="armMaskPath" cx="100" cy="100" r="100"/>
+        </defs>
+        <clipPath id="armMask">
+          <use xlink:href="#armMaskPath" overflow="visible"/>
+        </clipPath>
+
+        <circle cx="100" cy="100" r="100" fill="#A80CE8"/>
+
+        <path class="body" fill="#0066ff" stroke="blue" stroke-width="2.5" width="800px" height="800px" d="M37.5,67.5 40,42.5 68.75,55 Q100,42.5 131.25,55 L158.75,42.5 162.5,67.5 C187.5,255 12.5,255 37.5,67.5" />
+
+        <path class="nose" fill="red" stroke="#FFBB00" stroke-width="2.5" stroke-linecap="round" d="M92.5,112.5 Q94,117 100,120 Q106,117 107.5,112.5" />
+
+        <path class="hair" fill="#ff33cc" stroke="#BB4411" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M81.457,52.929 c1.755-4.084,5.51-8.262,11.253-11.77c0.979,2.565,1.883,5.14,2.712,7.723c3.162-4.265,8.626-8.27,16.272-11.235 c-0.737,3.293-1.588,6.573-2.554,9.837c4.857-2.116,11.049-3.64,18.428-4.156c-2.403,3.23-5.021,6.391-7.852,9.474"/>
+
+        <g class="eyeL">
+          <circle cx="74.5" cy="93" r="21.5" fill="#CCCCCC" stroke="#CCCCCC" stroke-width="0.1" />
+          <circle cx="75.5" cy="93.5" r="20" fill="#FFFFFF" stroke="none" stroke-width="0.1" />
+          <circle cx="80" cy="93.5" r="10" fill="#000000" stroke="limegreen" stroke-width="1" />
+          <circle cx="85" cy="90.5" r="2" fill="#FFFFFF" stroke="#000000" stroke-width="0.1" />
+        </g>
+        <g class="eyeR">
+          <circle cx="125.5" cy="93" r="21.5" fill="#CCCCCC" stroke="#CCCCCC" stroke-width="0.1" />
+          <circle cx="125" cy="93.5" r="20" fill="#FFFFFF" stroke="none" stroke-width="0.1" />
+          <circle cx="120" cy="93.5" r="10" fill="#000000" stroke="limegreen" stroke-width="1" />
+          <circle cx="125" cy="90.5" r="2" fill="#FFFFFF" stroke="#000000" stroke-width="0.1" />
+        </g>
+
+        <g class="arms" clip-path="url(#armMask)">
+          <g class="armL">
+            <path fill="#00ff00" stroke="#BB4411" stroke-width="2.5" d="M65,230 C-40,65 155,117.5 65,230 Z65,230" />
+          </g>
+          <g class="armR">
+            <path fill="#00ff00" stroke="#BB4411" stroke-width="2.5" d="M135,230 C240,65 45,117.5 135,230 Z135,230" />
+          </g>
+        </g>
+
+
+
+
+        <g class="eyebrow"></g>
+        <g class="earL">
+          <g class="outerEar"></g>
+          <g class="earHair"></g>
+        </g>
+        <g class="earR">
+          <g class="outerEar"></g>
+          <g class="earHair"></g>
+        </g>
+        <path class="chin" />
+        <path class="face" />
+        <g class="mouth"></g>
+
+      </svg>
+    </div>
+  </div>
+
+  <div class="inputGroup inputGroup1">
+    <label for="email1"> E-Mail* <input class="email input login" type="email" id="email" name="email"  maxlength="256" placeholder="johndoe@gmail.com"> </input> <span class="indicator"></span>
+	</div>
+
+	<div class="inputGroup inputGroup2">
+    <label for="password"> Password* <input class="password input login" type="password" id="password" name="password" > </input>
+	</div>
+  <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+  <div>
+    <p class="required">Fields marked with * are required!</p>
+  </div>
+  
+	<div class="inputGroup inputGroup3">
+    <button class="button" type="submit" name="button" id="login">Log In</button>
+	</div>
+
+  </form>
+</div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+<script type="text/javascript" src="owlanim.js"></script>

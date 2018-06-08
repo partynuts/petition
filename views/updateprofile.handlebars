@@ -1,0 +1,22 @@
+
+<div class="container">
+  <div class="descr">
+    <h3>Update your profile</h3>
+  </div>
+
+{{#userInfo}}
+  <div class="wrapper">
+    <form method="POST">
+      <label> First Name <input class="input" type="text" name="first" value="{{first}}"></input></label>
+      <label> Last Name <input class="input" type="text" name="last" value="{{last}}"></input></label>
+      <label> E-Mail <input class="input" type="email" name="email"  value="{{email}}"> </input>
+      <label> Password <input class="input" type="password" name="pw" value="{{pw}}"> </input>
+      <label> Age <input class="input" type="number" min="0" name="age" value="{{age}}"></input></label>
+      <label> City <input class="input" type="text" name="city" value="{{city}}"></input></label>
+      <label> Homepage <input class="input" type="text" name="url" value="{{url}}"> </input>
+      <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+      <button class="button" type="submit" name="button">Update</button>
+    </form>
+  </div>
+{{/userInfo}}
+</div>

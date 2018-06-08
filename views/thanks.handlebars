@@ -1,0 +1,24 @@
+
+<div class="thxcontainer">
+
+  <div class="thanks">
+    Thank you for signing the petition! Spread the word!
+  </div>
+
+<div class="wrapper">
+
+  <form action="/delete" method="POST">
+    <div class="signImg">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <img src="{{imageData}}" alt=""/>
+    </div>
+    <button type="submit" name="button" >Delete signature</button>
+  </form>
+</div>
+
+<div class="participants">
+  <a href="/list">List of all signers</a>
+</div>
+
+
+</div>

@@ -1,0 +1,24 @@
+{{#error}}
+  <div class="error">{{{errmessage}}}</div>
+{{/error}}
+
+<div class="container">
+  <div class="descr">
+    <h3>Become a supporter!</h3>
+    <p>You are just one step away from changing the world!</p>
+  </div>
+  <div class="wrapper">
+    <h3>Your signature counts!</h3>
+    <form method="POST">
+      <label> First Name <input class="input" type="text" name="first" value="{{first}}" readonly></input></label>
+      <label> Last Name <input class="input" type="text" name="last" value="{{last}}" readonly></input></label>
+      <label> Your signature* <input class="input" id="sign" name="signature"  type="hidden"> </input>
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+      <canvas class="canvas" id="canvas" width="700" height="300"></canvas></label>
+      <button class="button" id="resetsig" type="reset" name="button">Reset signature</button>
+      <button class="button" type="submit" name="button">Submit Form</button>
+    </form>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/script.js"></script>
