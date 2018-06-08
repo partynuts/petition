@@ -1,7 +1,6 @@
 console.log('canvas is running');
 
 var canvas = document.getElementById('canvas');
- // try {
    if (canvas.getContext) {
      var context = canvas.getContext('2d');
    } else {
@@ -39,10 +38,3 @@ var canvas = document.getElementById('canvas');
      context.clearRect(0, 0, canvas.width, canvas.height);
      $("#sign").val(signImg);
  })
-
-
-
- // $('#reset2').on('click', function(e) {
- //     context.clearRect(0, 0, canvas.width, canvas.height);
- //     $("#sign").val('');
- // })

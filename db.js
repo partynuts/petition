@@ -33,18 +33,22 @@ exports.hashPassword = hashPassword;
 
 function setRegistration(first, last, email, pw) {
   return db
-  .query(`INSERT INTO users (first, last, email, pw) VALUES ($1, $2, $3, $4) RETURNING id`, [first, last, email, pw])
+  .query(`INSERT INTO users (first, last, email, pw)
+  VALUES ($1, $2, $3, $4)
+  RETURNING id`, [first, last, email, pw])
 }
 
 exports.setRegistration = setRegistration;
 
 
 function setLogin(mail) {
-  // return db
-  // .query('SELECT pw, first, last, id FROM users WHERE email=$1', [mail])
 
   return db
-  .query("SELECT users.first, users.last, email, pw, users.id, signature FROM users LEFT JOIN signatures ON signatures.user_id = users.id WHERE email = $1", [mail]);
+  .query(`SELECT users.first, users.last, email, pw, users.id, signature
+    FROM users
+    LEFT JOIN signatures
+    ON signatures.user_id = users.id
+    WHERE email = $1`, [mail]);
 
 }
 
@@ -66,18 +70,22 @@ function checkPassword(textEnteredInLoginForm, hashedPasswordFromDatabase) {
 exports.checkPassword = checkPassword;
 
 function setData(signature, user_id) {
-  return db.query(`INSERT INTO signatures (signature, user_id) VALUES ($1, $2) RETURNING id`,
+  return db.query(`INSERT INTO signatures (signature, user_id)
+  VALUES ($1, $2) RETURNING id`,
   [signature, user_id])
 }
-// getData();
+
 
 exports.setData = setData;
 
 
 function getSignatureById(signatureId) {
   return db
-    // .query("SELECT signature FROM signatures WHERE id=$1", [signatureId])
-    .query("SELECT signature FROM users LEFT JOIN signatures ON signatures.user_id = users.id WHERE users.id = $1", [signatureId]);
+    .query(`SELECT signature
+      FROM users
+      LEFT JOIN signatures
+      ON signatures.user_id = users.id
+      WHERE users.id = $1`, [signatureId]);
 
 }
 
@@ -85,7 +93,7 @@ exports.getSignatureById = getSignatureById;
 
 function getNumberOfSupporters() {
   return db
-  .query("SELECT count(*) FROM signatures")
+  .query(`SELECT count(*) FROM signatures`)
 }
 
 exports.getNumberOfSupporters = getNumberOfSupporters;
@@ -107,7 +115,9 @@ exports.getSignersList = getSignersList;
 
 function moreInfo(age, city, url, user_id) {
   return db
-  .query(`INSERT INTO user_profiles (age, city, url, user_id) VALUES ($1, $2, $3, $4) RETURNING id`,
+  .query(`INSERT INTO user_profiles (age, city, url, user_id)
+  VALUES ($1, $2, $3, $4)
+  RETURNING id`,
   [age, city, url, user_id])
 }
 
@@ -186,20 +196,3 @@ function deleteSignature(user_id) {
 }
 
 exports.deleteSignature = deleteSignature;
-
-//To Do:
-// * edit user_profile ==> link page for profile data. when sending the update 2 queries are needed. 1. update for users table ==> check if only three fields have been updated or all 4. if all 4, i.e. also pw, then hash pw.
-// for user_profiles table not clear if update or insert. so you wanna upsert it. that means if already exists then update else insert!
-// insert into...
-// values ...
-// on conflict (user_id)
-// do update set ...
-//we want the form to already be filled with the beforehand data.
-//Important: change the session information that is stored in the session after the profile data has been updated/changed.
-//we want to delet the signature:
-//<form action="delete"....
-//db.deleteSig(req.session.userId.id).then(function() {
-// req.session.user.hasSigned = false;
-// res.redirect('/petition');
-// })
-//* delete signature! and so delete signature from signatures table.

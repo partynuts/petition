@@ -1,5 +1,4 @@
 body {
-  /* background-color: deeppink; */
   font-size: 20px;
   background: fuchsia url('https://www.vermartec.com/wp-content/uploads/2017/01/Farbspritzer-frei_1.1.png') no-repeat;
 }
@@ -53,8 +52,7 @@ h3 {
   margin-bottom: 30px;
   padding: 20px;
   background-image: url('http://arbeitsmed.info/wp-content/uploads/2017/12/munken-highway-white-arctic-paper-avec-png-colour-splash-et-bg-splash-png-colour-splash-11-2000x2500.png');
-  /* display: grid; */
-  /* justify-content: center; */
+
 }
 
 .small {
@@ -67,7 +65,6 @@ h3 {
 }
 
 .error {
-  /* display: none; */
   grid-row: 1;
   border-radius: 5px;
   background: rgba(0, 0, 26, 0.9);
@@ -89,25 +86,18 @@ canvas {
   background-color: white;
   position: relative;
   top: -.2em;
-  /* cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"); */
   cursor: url('pen.png'), default;
 }
 
-/* canvas:onmousedown {
-  box-shadow: 0px 0px 30px 8px purple;
-  /* cursor: url("pen2.png"), auto; */
 
-/* } */
 
 canvas:hover {
   cursor: url('pen.png'), default;
 }
 
 header {
-  /* display: block; */
   font-weight: bolder;
   font-size: 20px;
-  /* font-family: 'Caveat Brush', cursive; */
   margin-bottom: 30px;
 }
 
@@ -147,19 +137,14 @@ font-family: 'Caveat Brush', cursive;
 }
 
 .nav a.active {
-  /* background-color: #fff; */
   color: #fff;
   cursor: default;
 }
 
-/* a {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 30px;
-} */
+
 
 label {
   font-size: 15px;
-  /* font-weight bolder; */
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
 }
@@ -181,14 +166,11 @@ input:focus {
 
 button[type=reset] {
   width: 20%;
-  /* background-image: url("whitetube.png"); */
-  /* background-repeat: no-repeat;
-  background-position: center; */
+
   background-color: black;
   display: block;
   color: white;
   font-size: 30px;
-  /* font-weight: bolder; */
   font-family: 'Caveat Brush', cursive;
   padding: 14px 20px;
   margin: 8px 0;
@@ -205,14 +187,12 @@ button[type=reset]:hover {
 
 button[type=submit] {
 
-  /* background-size: 40%; */
   width: 40%;
 
   background:  linear-gradient(to bottom right, deeppink,#99ff66, orange,deeppink,limegreen,turquoise,#ff0066, tomato);
   display: block;
   color: black;
   font-size: 45px;
-  /* font-weight: bolder; */
   font-family: 'Caveat Brush', cursive;
   padding: 14px 20px;
   margin: 15px 0;
@@ -297,9 +277,7 @@ table {
   width: 30%;
 }
 
-/* td {
-  padding: 20px;
-} */
+
 
 footer {
   position: absolute;
@@ -320,7 +298,6 @@ footer {
   .wrapper {
     margin-bottom: 15px;
     padding: 10px;
-    /* background-image: url('http://arbeitsmed.info/wp-content/uploads/2017/12/munken-highway-white-arctic-paper-avec-png-colour-splash-et-bg-splash-png-colour-splash-11-2000x2500.png'); */
   }
   .small {
     width: 30%;
@@ -341,7 +318,6 @@ footer {
   canvas {
     border: 1px solid black;
     margin-top: 13px;
-    /* width="750" height="300" */
   }
   header {
     margin-bottom: 7.5px;
@@ -395,15 +371,5 @@ footer {
     display: inline-block;
     margin-right: -4px;
   }
-  /* .tname {
-    width: 40%;
-  }
 
-  .tage {
-    width: 10%;
-  }
-
-  .tcity {
-    width: 30%;
-  } */
 }

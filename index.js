@@ -25,8 +25,7 @@ const csurf = require("csurf");
 
 const cookieSession = require("cookie-session");
 
-//JSON.stringify({ signatureId: 1 }) + mySecret but we do not have to do the hashing ourselves. there is a middleware that does that:
-//cookieSession!
+
 
 let error = {
   message: "",
@@ -34,7 +33,7 @@ let error = {
 };
 
 app.engine("handlebars", hb());
-app.set("view engine", "handlebars"); //diese beiden Zeilen bleiben immer gleich für wenn man Handlebars benutzt
+app.set("view engine", "handlebars");
 app.use(cookieParser());
 app.use(
   bodyParser.urlencoded({
@@ -47,7 +46,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(
   cookieSession({
     secret: `Man's not hot`,
-    maxAge: 1000 * 60 * 60 * 24 * 14 //expiration of the session (like on banking pages)
+    maxAge: 1000 * 60 * 60 * 24 * 14
   })
 );
 
@@ -64,12 +63,7 @@ app.use(function(req, res, next) {
   }
 });
 
-// app.use((req, res, next) => {
-//   // get user from cookie, database, etc.
-// let user = req.session.user.id;
-// // res.render("/")
-//   next();
-// });
+
 
 app.use(csurf());
 
@@ -82,7 +76,7 @@ app.use(function(req, res, next) {
 app.get("/", function(req, res, next) {
   if (req.session.user) {
     return res.redirect("/petition");
-  } //theoretisch wäre hier ein else, aber höherer Aufwand für compiler, deshalb kann man weglassen
+  }
   res.redirect("/registration");
 });
 
@@ -93,13 +87,13 @@ app.get("/registration", function(req, res) {
   res.render("registration", {
     title: "Colorful World",
     layout: "main"
-    // logged: req.session.user.id
+
   });
 });
 
 app.post("/registration", function(req, res) {
   console.log("TEST reg");
-  let first = req.body.first; //req. body.name => der name ist der name, den das feld im html hat.
+  let first = req.body.first;
   let last = req.body.last;
   let email = req.body.email;
   req.session.email = email;
@@ -111,7 +105,7 @@ app.post("/registration", function(req, res) {
       setRegistration(first, last, email, results)
         .then(function(result) {
           console.log(result);
-          // req.session.signatureId = result.rows[0].id;
+
           req.session.user = {
             id: result.rows[0].id,
             first: req.body.first,
@@ -128,7 +122,7 @@ app.post("/registration", function(req, res) {
             },
             title: "Colorful World",
             layout: "main"
-            // logged: req.session.user.id
+
           });
         });
     });
@@ -161,7 +155,6 @@ app.post("/registration", function(req, res) {
       error: error,
       title: "Colorful World",
       layout: "main"
-      // logged: req.session.user.id
     });
   }
 });
@@ -170,7 +163,6 @@ app.get("/login", (req, res) => {
   res.render("login", {
     title: "Colorful World",
     layout: "main"
-    // logged: req.session.user.id
   });
 });
 
@@ -189,12 +181,10 @@ app.post("/login", (req, res) => {
           errmessage: errorMessage,
           fields: errorFields
         };
-        // console.log(req.session.user.id);
         return res.render("login", {
           error: error,
           title: "Colorful World",
           layout: "main"
-          // logged: req.session.user.id
         });
       }
       checkPassword(pw, result.rows[0].pw)
@@ -226,12 +216,10 @@ app.post("/login", (req, res) => {
               errmessage: errorMessage,
               fields: errorFields
             };
-            // console.log(req.session.user.id);
             res.render("login", {
               error: error,
               title: "Colorful World",
               layout: "main"
-              // logged: req.session.user.id
             });
           }
         })
@@ -260,7 +248,6 @@ app.post("/login", (req, res) => {
       error: error,
       title: "Colorful World",
       layout: "main"
-      // logged: req.session.user.id
     });
   }
 });
@@ -268,7 +255,7 @@ app.post("/login", (req, res) => {
 app.get("/profile", function(req, res) {
   if (!req.session.user) {
     return res.redirect("/registration");
-  } //theoretisch wäre hier ein else, aber höherer Aufwand für compiler, deshalb kann man weglassen
+  }
   res.render("profile", {
     title: "Colorful World",
     layout: "main",
@@ -324,9 +311,7 @@ app.get("/thanks", function(req, res) {
   getSignatureById(req.session.user.id)
     .then(function(result) {
       console.log("already signed in thx truthy");
-      // let imgData = result.rows[0].signature;
       let imgData = result.rows[0].signature;
-      // console.log(imgData);
       res.render("thanks", {
         title: "Colorful World",
         imageData: imgData,
@@ -337,9 +322,8 @@ app.get("/thanks", function(req, res) {
     .catch(e => {
       console.log(e);
     });
-  // db.setDataById(req.session.signatureId).then(function(result) {
 });
-// })
+
 
 app.post("/delete", function(req, res) {
   console.log("signature delete firing");
@@ -368,7 +352,6 @@ app.get("/list", function(req, res) {
       getSignersList().then(function(result) {
         console.log("getting signers list is firing");
         let signersList = [];
-        // for(let i = 0; i < numOfSup; i++) {
         let i = 0;
         console.log(result.rows);
         while (i < numOfSup) {
@@ -489,9 +472,7 @@ app.get("/updateprofile", (req, res) => {
     getUserData(req.session.user.id)
       .then(function(result) {
         console.log("user is logged in and updating");
-        // console.log('result rows', result.rows[0]);
         let userInfo = {
-          //theoretisch könnte man hier auch einfach die userInfo als Param in die Funktion geben und nur das ausgeben, anstatt das userInfo Objekt zu erstellen
           first: result.first,
           last: result.last,
           email: result.email,
@@ -499,7 +480,6 @@ app.get("/updateprofile", (req, res) => {
           city: result.city,
           url: result.url
         };
-        // console.log(req.session);
         return res.render("updateprofile", {
           title: "Colorful World",
           userInfo: userInfo,
@@ -640,9 +620,7 @@ app.get("/edited", (req, res) => {
     getUserData(req.session.user.id)
       .then(function(result) {
         console.log("user is logged in and updating");
-        // console.log('result rows', result.rows[0]);
         let userInfo = {
-          //theoretisch könnte man hier auch einfach die userInfo als Param in die Funktion geben und nur das ausgeben, anstatt das userInfo Objekt zu erstellen
           first: result.first,
           last: result.last,
           email: result.email,
@@ -650,7 +628,6 @@ app.get("/edited", (req, res) => {
           city: result.city,
           url: result.url
         };
-        // console.log(req.session);
         return res.render("edited", {
           title: "Colorful World",
           userInfo: userInfo,
